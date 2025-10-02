@@ -1,18 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { DynamicRoutes } from "../../DynamicRoutes";
-import { generateRoutes } from "./generateRoutes";
+
+import {  Routes, Route } from "react-router-dom";
+//import { DynamicRoutes } from "../../DynamicRoutes";
+//import { generateRoutes } from "./generateRoutes";
 import Home from '../pages/Home'; // Assuming you have a Home component     
+import ReactMain from "../pages/React";
 
 function AppRoutes() {
   return (
-    <Router>
+    
       <Routes>
-        {generateRoutes(DynamicRoutes)}
+        { /*generateRoutes(DynamicRoutes)*/  }
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/react" element={<ReactMain />} />
         <Route path="*" element={<div>404 Page Not Found</div>} />
       </Routes>
-    </Router>
   );
 }
 
