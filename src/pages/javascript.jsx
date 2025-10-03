@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { ReactRoutes } from '../../DynamicRoutes';
+import { JavascriptRoutes } from '../../DynamicRoutes';
+
 
 /*// Dynamic lazy loading function
 const lazyLoadComponent = (componentPath) => {
@@ -151,7 +152,7 @@ const Sidebar = ({ currentPath, onNavigate }) => {
           🏠 Home
         </button>
         <hr className="mb-4" />
-        {renderNav(ReactRoutes)}
+        {renderNav(JavascriptRoutes)}
       </div>
     </div>
   );
@@ -220,7 +221,7 @@ const NotFound = ({ onNavigate }) => {
   );
 };
 
-export default function ReactMain() {
+export default function JavascriptMain() {
   const [currentPath, setCurrentPath] = useState('/');
 
   const navigate = (path) => {
@@ -228,7 +229,7 @@ export default function ReactMain() {
   };
 
   // Find the current route
-  const currentRoute = findRoute(ReactRoutes, currentPath);
+  const currentRoute = findRoute(JavascriptRoutes, currentPath);
 
   return (
     <div className="flex h-screen bg-white">
