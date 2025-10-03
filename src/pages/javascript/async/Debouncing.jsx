@@ -4,6 +4,46 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function Debouncing() {
+
+
+  const customeHookExample = `
+  import React, { useState, useEffect } from "react";
+
+//custom hook
+const debounce = (value, delay)=> {
+  const [debounceVal, setdebounceVal] = useState(value);
+  useEffect(()=> {
+    let timer = setTimeout(()=> {
+      setdebounceVal(value);
+    }, delay);
+    return ()=> {
+      clearTimeout(timer);
+    }
+  }, [value, delay]); 
+  return debounceVal
+}
+
+
+export default function App() {
+  const [query, setQuery] = useState();
+  let debounceVal = debounce(query, 400);
+  useEffect(()=> {
+    if(debounceVal) {
+      fetch('https://api.example.com/search?q=query').then(result=> result.json()).then(data=> {
+        console.log(data);
+      }).catch(err=> {
+        console.log(err);
+      })
+    }
+  },[debounceVal])
+  return (
+    <div>
+      <input type="text" value={query} onChange={e=>setQuery(e.target.value)} name="queryFielter" />
+    </div>
+  );
+}
+  `;
+
   const jsExample = `// Debounce function: delays execution until after wait time
 function debounce(func, delay) {
   let timer;
@@ -82,6 +122,11 @@ function debounce(func, delay) {
       <h2 className="text-xl font-semibold mt-6">🔹 React Example</h2>
       <SyntaxHighlighter language="javascript" style={oneDark}>
         {reactExample}
+      </SyntaxHighlighter>
+
+      <h2 className="text-xl font-semibold mt-6">🔹 React Custom Hook Example</h2>
+      <SyntaxHighlighter language="javascript" style={oneDark}>
+        {customeHookExample}
       </SyntaxHighlighter>
 
       <h2 className="text-xl font-semibold mt-6">🔹 Explanation</h2>

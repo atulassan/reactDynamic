@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 // ============================================
 // SOLID PRINCIPLES IN REACT
@@ -80,7 +82,7 @@ const SingleResponsibility = () => {
           <span className="text-2xl mr-2">❌</span>
           <h3 className="text-xl font-bold text-red-800">Bad Example - Multiple Responsibilities</h3>
         </div>
-        <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <SyntaxHighlighter language="javascript" style={oneDark}>
 {`// ❌ Bad: UserProfile does too many things
 const UserProfile = ({ userId }) => {
   const [user, setUser] = useState(null);
@@ -118,7 +120,7 @@ const UserProfile = ({ userId }) => {
     </div>
   );
 };`}
-        </pre>
+        </SyntaxHighlighter>
         <div className="mt-4 bg-red-100 p-4 rounded">
           <p className="text-red-800 font-semibold">Problems:</p>
           <ul className="list-disc list-inside text-red-700 mt-2 space-y-1">
@@ -135,7 +137,7 @@ const UserProfile = ({ userId }) => {
           <span className="text-2xl mr-2">✅</span>
           <h3 className="text-xl font-bold text-green-800">Good Example - Single Responsibilities</h3>
         </div>
-        <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <SyntaxHighlighter language="javascript" style={oneDark}>
 {`// ✅ Good: Separated concerns
 
 // Hook for data fetching
@@ -186,7 +188,7 @@ const UserEmail = ({ email }) => (
 const UserJoinDate = ({ date }) => (
   <p>Joined: {formatDate(date)}</p>
 );`}
-        </pre>
+        </SyntaxHighlighter>
         <div className="mt-4 bg-green-100 p-4 rounded">
           <p className="text-green-800 font-semibold">Benefits:</p>
           <ul className="list-disc list-inside text-green-700 mt-2 space-y-1">
@@ -221,7 +223,7 @@ const OpenClosed = () => {
           <span className="text-2xl mr-2">❌</span>
           <h3 className="text-xl font-bold text-red-800">Bad Example - Hard-coded Logic</h3>
         </div>
-        <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <SyntaxHighlighter language="javascript" style={oneDark}>
 {`// ❌ Bad: Must modify component to add new button types
 const Button = ({ type, children }) => {
   if (type === 'primary') {
@@ -251,7 +253,7 @@ const Button = ({ type, children }) => {
   // Need to modify this component to add new types!
   return <button>{children}</button>;
 };`}
-        </pre>
+        </SyntaxHighlighter>
         <div className="mt-4 bg-red-100 p-4 rounded">
           <p className="text-red-800 font-semibold">Problems:</p>
           <ul className="list-disc list-inside text-red-700 mt-2 space-y-1">
@@ -268,7 +270,7 @@ const Button = ({ type, children }) => {
           <span className="text-2xl mr-2">✅</span>
           <h3 className="text-xl font-bold text-green-800">Good Example - Extensible Design</h3>
         </div>
-        <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <SyntaxHighlighter language="javascript" style={oneDark}>
 {`// ✅ Good: Open for extension, closed for modification
 const Button = ({ className, children, ...props }) => {
   return (
@@ -311,7 +313,7 @@ const SuccessButton = ({ children, ...props }) => (
 <PrimaryButton onClick={() => alert('Primary')}>
   Primary Action
 </PrimaryButton>`}
-        </pre>
+        </SyntaxHighlighter>
         <div className="mt-4 bg-green-100 p-4 rounded">
           <p className="text-green-800 font-semibold">Benefits:</p>
           <ul className="list-disc list-inside text-green-700 mt-2 space-y-1">
@@ -365,7 +367,7 @@ const LiskovSubstitution = () => {
           <span className="text-2xl mr-2">❌</span>
           <h3 className="text-xl font-bold text-red-800">Bad Example - Broken Substitution</h3>
         </div>
-        <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <SyntaxHighlighter language="javascript" style={oneDark}>
 {`// ❌ Bad: TextInput violates expected behavior
 const Input = ({ value, onChange, ...props }) => (
   <input 
@@ -395,7 +397,7 @@ const Form = ({ InputComponent }) => {
     />
   );
 };`}
-        </pre>
+        </SyntaxHighlighter>
         <div className="mt-4 bg-red-100 p-4 rounded">
           <p className="text-red-800 font-semibold">Problems:</p>
           <ul className="list-disc list-inside text-red-700 mt-2 space-y-1">
@@ -412,7 +414,7 @@ const Form = ({ InputComponent }) => {
           <span className="text-2xl mr-2">✅</span>
           <h3 className="text-xl font-bold text-green-800">Good Example - Proper Substitution</h3>
         </div>
-        <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <SyntaxHighlighter language="javascript" style={oneDark}>
 {`// ✅ Good: Consistent interface across all input types
 const BaseInput = ({ value, onChange, disabled, ...props }) => (
   <input
@@ -470,7 +472,7 @@ const Form = ({ InputComponent = TextInput }) => {
 <Form InputComponent={TextInput} />
 <Form InputComponent={ReadOnlyInput} />
 <Form InputComponent={NumberInput} />`}
-        </pre>
+        </SyntaxHighlighter>
         <div className="mt-4 bg-green-100 p-4 rounded">
           <p className="text-green-800 font-semibold">Benefits:</p>
           <ul className="list-disc list-inside text-green-700 mt-2 space-y-1">
@@ -505,7 +507,7 @@ const InterfaceSegregation = () => {
           <span className="text-2xl mr-2">❌</span>
           <h3 className="text-xl font-bold text-red-800">Bad Example - Fat Interface</h3>
         </div>
-        <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <SyntaxHighlighter language="javascript" style={oneDark}>
 {`// ❌ Bad: Bloated props interface
 const VideoPlayer = ({
   url,
@@ -540,7 +542,7 @@ const VideoPlayer = ({
   controls={true}
   // Must understand all other props even if not needed
 />`}
-        </pre>
+        </SyntaxHighlighter>
         <div className="mt-4 bg-red-100 p-4 rounded">
           <p className="text-red-800 font-semibold">Problems:</p>
           <ul className="list-disc list-inside text-red-700 mt-2 space-y-1">
@@ -557,7 +559,7 @@ const VideoPlayer = ({
           <span className="text-2xl mr-2">✅</span>
           <h3 className="text-xl font-bold text-green-800">Good Example - Segregated Interfaces</h3>
         </div>
-        <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <SyntaxHighlighter language="javascript" style={oneDark}>
 {`// ✅ Good: Small, focused components
 // Basic video player - minimal props
 const VideoPlayer = ({ url, className }) => (
@@ -631,7 +633,7 @@ const FullFeaturedPlayer = (props) => {
   controls
   onPlay={() => console.log('Playing')}
 />`}
-        </pre>
+        </SyntaxHighlighter>
         <div className="mt-4 bg-green-100 p-4 rounded">
           <p className="text-green-800 font-semibold">Benefits:</p>
           <ul className="list-disc list-inside text-green-700 mt-2 space-y-1">
@@ -667,7 +669,7 @@ const DependencyInversion = () => {
           <span className="text-2xl mr-2">❌</span>
           <h3 className="text-xl font-bold text-red-800">Bad Example - Tight Coupling</h3>
         </div>
-        <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <SyntaxHighlighter language="javascript" style={oneDark}>
 {`// ❌ Bad: UserList depends on concrete API implementation
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -696,7 +698,7 @@ const UserList = () => {
 // Can't test without real API
 // Can't swap data sources
 // Can't reuse with different data fetching strategies`}
-        </pre>
+        </SyntaxHighlighter>
         <div className="mt-4 bg-red-100 p-4 rounded">
           <p className="text-red-800 font-semibold">Problems:</p>
           <ul className="list-disc list-inside text-red-700 mt-2 space-y-1">
@@ -714,7 +716,7 @@ const UserList = () => {
           <span className="text-2xl mr-2">✅</span>
           <h3 className="text-xl font-bold text-green-800">Good Example - Dependency Injection</h3>
         </div>
-        <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <SyntaxHighlighter language="javascript" style={oneDark}>
 {`// ✅ Good: Depend on abstractions (props/hooks)
 
 // Abstract data fetching into a hook
@@ -779,7 +781,7 @@ test('renders user list', () => {
   render(<UserList fetchUsers={fetchMockUsers} />);
   // ...
 });`}
-        </pre>
+        </SyntaxHighlighter>
         <div className="mt-4 bg-green-100 p-4 rounded">
           <p className="text-green-800 font-semibold">Benefits:</p>
           <ul className="list-disc list-inside text-green-700 mt-2 space-y-1">

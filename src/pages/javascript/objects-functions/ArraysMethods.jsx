@@ -2,6 +2,7 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import ArraysMethodsPlayground from "../../../Components/Modules/ArraysMethodsPlayground";
 
 export default function ArraysMethodsComplete() {
   const jsExample = `// Arrays Examples
@@ -121,6 +122,8 @@ export default function ArraysReactExample() {
       <SyntaxHighlighter language="javascript" style={oneDark}>
         {reactExample}
       </SyntaxHighlighter>
+
+      <ArraysMethodsPlayground />
     </div>
   );
 }

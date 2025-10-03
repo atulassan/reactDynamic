@@ -146,7 +146,8 @@ export const ReactRoutes = [
         { "title": "Prototype Chain", "path": "/javascript/objects-functions/prototype-chain", "component": "PrototypeChain", "componentPath": "/javascript/objects-functions/PrototypeChain" },
         { "title": "Prototype vs Classical Inheritance", "path": "/javascript/objects-functions/inheritance", "component": "Inheritance", "componentPath": "/javascript/objects-functions/Inheritance" },
         { "title": "Instances / Implements / Extends", "path": "/javascript/objects-functions/oop-basics", "component": "OOPBasics", "componentPath": "/javascript/objects-functions/OOPBasics" },
-        { "title": "OOPS Principles", "path": "/javascript/objects-functions/oops", "component": "OOPS", "componentPath": "/javascript/objects-functions/OOPS" }
+        { "title": "OOPS Principles", "path": "/javascript/objects-functions/oops", "component": "OOPS", "componentPath": "/javascript/objects-functions/OOPS" },
+        { "title": "Deep dive", "path": "/javascript/objects-functions/oopsnew", "component": "OOPSnew", "componentPath": "/javascript/objects-functions/OOPSnew" }
       ]
     },
     {
@@ -155,6 +156,7 @@ export const ReactRoutes = [
       "component": "Functions",
       "componentPath": "/javascript/functions/Functions",
       "children": [
+        { "title": "Call Apply Bind", "path": "/javascript/functions/callapplybind", "component": "CallApplyBind", "componentPath": "/javascript/functions/CallApplyBind" },
         { "title": "Functional Types", "path": "/javascript/functions/types", "component": "FunctionalTypes", "componentPath": "/javascript/functions/FunctionalTypes" },
         { "title": "Pure Functions", "path": "/javascript/functions/pure", "component": "PureFunctions", "componentPath": "/javascript/functions/PureFunctions" },
         { "title": "Higher Order Functions", "path": "/javascript/functions/hof", "component": "HOF", "componentPath": "/javascript/functions/HOF" },
