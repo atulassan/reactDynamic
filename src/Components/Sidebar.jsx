@@ -1,39 +1,25 @@
+import { NavButton } from "./Modules/NavButton";
+import { NavSection } from "./Modules/NavSection";
 
-
-import { useState } from "react";
-import { DynamicRoutes } from "../../DynamicRoutes";
-import SidebarItem from "./Modules/SidebarItem";
-
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
+export const Sidebar = ({ routes, currentPath, onNavigate, title = "Navigation", homeIcon = "🏠" }) => {
   return (
-    <>
-      {/* Mobile toggle button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-md"
-      >
-        {isOpen ? "✕" : "☰"}
-      </button>
-
-      {/* Sidebar */}
-      <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-gray-900 text-gray-100 shadow-lg transform transition-transform duration-200 ease-in-out
-        ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
-      >
-        <div className="flex items-center h-16 px-4 font-bold text-lg border-b border-gray-700">
-          <span className="text-indigo-400">React Topics</span>
-        </div>
-
-        <nav className="px-2 py-4 space-y-1 overflow-y-auto h-[calc(100%-4rem)]">
-          {DynamicRoutes.map((item) => (
-            <SidebarItem key={item.path} item={item} />
-          ))}
-        </nav>
-      </aside>
-    </>
+    <div className="w-64 bg-gray-50 border-r border-gray-200 h-screen overflow-y-auto">
+      <div className="p-4">
+        <h2 className="text-xl font-bold mb-4 text-gray-800">{title}</h2>
+        <NavButton
+          title="Home"
+          path="/"
+          currentPath={currentPath}
+          onClick={onNavigate}
+          icon={homeIcon}
+        />
+        <hr className="my-4" />
+        <NavSection
+          routes={routes}
+          currentPath={currentPath}
+          onNavigate={onNavigate}
+        />
+      </div>
+    </div>
   );
 };
-
-export default Sidebar;

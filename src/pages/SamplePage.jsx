@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { ReactRoutes } from "../../DynamicRoutes";
+import React, {useState} from 'react';
+import { JavascriptRoutes } from "../../DynamicRoutes";
 import { Sidebar } from '../Components/Sidebar';
 import { LazyRouter } from '../Components/LazyRouter';
-import { NavLink } from 'react-router-dom';
 
 const demoFeatures = [
   {
@@ -70,7 +69,7 @@ const demoSections = [
   }
 ];
 
-export default function JavascriptMain() {
+export default function SamplePage() {
   const [currentPath, setCurrentPath] = useState('/');
 
   const navigate = (path) => {
@@ -88,47 +87,27 @@ export default function JavascriptMain() {
           animation: fadeIn 0.3s ease-out;
         }
       `}</style>
-
-      {/* Tab Switcher */}
-      {/*<div className="bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg">
-        <div className="flex items-center justify-center space-x-2 p-3">
-          <NavLink
-            to="/javascript"
-            className="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-800 hover:text-white"
-          >
-            Javascript
-          </NavLink>
-          <NavLink
-            to="/react"
-            className="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-800 hover:text-white"
-          >
-            React
-          </NavLink>
-        </div>
-      </div>*/}
-
-      <div className="flex flex-1 overflow-hidden">
-        <Sidebar
-          routes={ReactRoutes}
+      
+      <Sidebar 
+        routes={JavascriptRoutes}
+        currentPath={currentPath}
+        onNavigate={navigate}
+        title="React Learning"
+      />
+      
+      <main className="flex-1 overflow-y-auto">
+        <LazyRouter
+          routes={JavascriptRoutes}
           currentPath={currentPath}
           onNavigate={navigate}
-          title="React Learning"
+          homeProps={{
+            title: "Welcome to JavaScript Reference",
+            subtitle: "Comprehensive guide to JavaScript concepts, patterns, and best practices",
+            features: demoFeatures,
+            sections: demoSections
+          }}
         />
-
-        <main className="flex-1 overflow-y-auto">
-          <LazyRouter
-            routes={ReactRoutes}
-            currentPath={currentPath}
-            onNavigate={navigate}
-            homeProps={{
-              //title: "Welcome to JavaScript Reference",
-              //subtitle: "Comprehensive guide to JavaScript concepts, patterns, and best practices",
-              features: demoFeatures,
-              sections: demoSections
-            }}
-          />
-        </main>
-      </div>
+      </main>
     </div>
   );
 }

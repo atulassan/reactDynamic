@@ -4,7 +4,8 @@ import {  Routes, Route } from "react-router-dom";
 //import { generateRoutes } from "./generateRoutes";
 import Home from '../pages/Home'; // Assuming you have a Home component     
 import ReactMain from "../pages/React";
-import JavascriptMain from "../pages/javascript";
+import JavascriptMain from "../pages/Javascript";
+import SamplePage from "../pages/SamplePage";
 
 function AppRoutes() {
   return (
