@@ -3,10 +3,26 @@ import React, { useState, useCallback } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
+function debounce(func, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => func(...args), delay);
+  };
+}
+
 export default function Debouncing() {
 
+  const [value, setValue] = useState("");
 
-  const customeHookExample = `
+  const handleChange = useCallback(
+    debounce((val) => {
+      console.log("Debounced Value:", val);
+    }, 500),
+    []
+  );
+
+  const customHookExample = `
   import React, { useState, useEffect } from "react";
 
 //custom hook
@@ -108,10 +124,18 @@ function debounce(func, delay) {
   return (
     <div className="p-6 animate-fadeIn">
       <h1 className="text-3xl font-bold mb-4">⌛ Debouncing in JavaScript & React</h1>
-
+      
       <p className="mb-4">
         Debouncing ensures that a function runs only after a certain period of inactivity.
         It's commonly used to optimize high-frequency events like typing or scrolling.
+      </p>
+
+    <p>
+      Example  
+      <input type="text" value={value} onChange={(e)=> {
+        setValue(e.target.value);
+        handleChange(e.target.value);
+      }} className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
       </p>
 
       <h2 className="text-xl font-semibold mt-6">🔹 JavaScript Example</h2>
@@ -126,7 +150,7 @@ function debounce(func, delay) {
 
       <h2 className="text-xl font-semibold mt-6">🔹 React Custom Hook Example</h2>
       <SyntaxHighlighter language="javascript" style={oneDark}>
-        {customeHookExample}
+        {customHookExample}
       </SyntaxHighlighter>
 
       <h2 className="text-xl font-semibold mt-6">🔹 Explanation</h2>
