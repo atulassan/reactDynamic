@@ -4,7 +4,7 @@ export const NavButton = ({ title, path, currentPath, onClick, icon }) => {
   return (
     <button
       onClick={() => onClick(path)}
-      className={`block text-sm w-full text-left py-2 px-4 rounded transition-colors ${
+      className={`block cursor-pointer text-sm w-full text-left py-2 px-4 rounded transition-colors ${
         isActive 
           ? 'bg-blue-500 text-white font-medium' 
           : 'hover:bg-blue-100 text-gray-700'

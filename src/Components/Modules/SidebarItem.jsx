@@ -6,6 +6,7 @@ export default function SidebarItem ({ item }) {
     <div className="ml-2">
       <NavLink
         to={item.path}
+        
         className="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-800 hover:text-white"
       >
         {item.title}
