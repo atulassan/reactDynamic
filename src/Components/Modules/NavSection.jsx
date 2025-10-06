@@ -2,7 +2,7 @@ import { NavButton } from "./NavButton";
 
 export const NavSection = ({ routes, currentPath, onNavigate, level = 0 }) => {
   return routes.map((route) => (
-    <div key={route.path} className={`${level > 0 ? 'ml-4' : ''}`}>
+    <div key={route.path} className={`${level > 0 ? 'ml-2' : ''}`}>
       <NavButton
         title={route.title}
         path={route.path}

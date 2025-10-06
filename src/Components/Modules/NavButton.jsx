@@ -10,7 +10,7 @@ export const NavButton = ({ title, path, currentPath, onClick, icon }) => {
           : 'hover:bg-blue-100 text-gray-700'
       }`}
     >
-      {icon && <span className="mr-2">{icon}</span>}
+      {/*icon && <span className="mr-2">{icon}</span>*/}
       {title}
     </button>
   );
