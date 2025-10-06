@@ -23,3 +23,25 @@ export const findRouteByPath = (routes, path) => {
   }
   return null;
 };
+
+export const filterRoutes = (routes, query) => {
+  if (!query) return routes;
+  const lower = query.toLowerCase();
+
+  return routes
+    .map((route) => {
+      const matches =
+        route.title.toLowerCase().includes(lower) ||
+        route.path.toLowerCase().includes(lower);
+
+      if (route.children) {
+        const filteredChildren = filterRoutes(route.children, query);
+        if (filteredChildren.length > 0 || matches) {
+          return { ...route, children: filteredChildren };
+        }
+      }
+
+      return matches ? { ...route } : null;
+    })
+    .filter(Boolean);
+};

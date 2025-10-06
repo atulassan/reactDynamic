@@ -1,14 +1,21 @@
-//import { useState } from "react";
+import { useState, useMemo } from "react";
 import { NavSection } from "./Modules/NavSection";
 import { NavButton } from "./Modules/NavButton";
 import { NavLink } from "react-router-dom";
+import { filterRoutes } from "../utils/LazyLoader";
 
 
 export const Sidebar = ({ routes, currentPath, onNavigate, title = "Navigation", homeIcon = "🏠" }) => {
 
-  //const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   //const filterRoutesNew = filterRoutes([routes], searchTerm);
+
+  const filteredRoutes = useMemo(() => {
+    return filterRoutes(routes, searchTerm);
+  }, [routes, searchTerm]);
+
+  console.log(filteredRoutes)
 
   return (
     <div className="w-64 bg-gray-50 border-r border-gray-200 h-screen overflow-y-auto">
@@ -39,7 +46,7 @@ export const Sidebar = ({ routes, currentPath, onNavigate, title = "Navigation",
           >React</NavLink>
         </div>
         
-        {/* <div className="mb-6">
+       <div className="mb-6">
           <input
             type="text"
             placeholder="Search routes..."
@@ -47,11 +54,11 @@ export const Sidebar = ({ routes, currentPath, onNavigate, title = "Navigation",
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
-        </div>*/}
+        </div>
 
         <hr className="my-4" />
         <NavSection
-          routes={routes}
+          routes={filteredRoutes}
           currentPath={currentPath}
           onNavigate={onNavigate}
         />
