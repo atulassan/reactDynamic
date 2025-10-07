@@ -1,7 +1,7 @@
 // Promises.jsx
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { oneDark, solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import PromisesFull from "./PromisesFull";
 
 export default function Promises() {
@@ -65,6 +65,29 @@ export default FetchDataComponent;`;
     <div className="p-6 animate-fadeIn">
       <h1 className="text-3xl font-bold mb-4">💡 Promises in JavaScript & React</h1>
 
+      <h2 className="text-xl font-semibold mt-6">🔹 Explanation</h2>
+      <SyntaxHighlighter
+        language='Javascript'
+        style={solarizedlight} // or use `vs` for a clean VS Code look
+        showLineNumbers
+        customStyle={{
+          fontSize: "20px",
+          lineHeight: "1.6",
+          backgroundColor: "#fdfdfd",
+          padding: "16px",
+          borderRadius: "0 0 8px 8px",
+          color: "#333",
+        }}
+        codeTagProps={{
+          style: {
+            fontFamily: "JetBrains Mono, Fira Code, monospace",
+          },
+        }}
+      >
+        {explanation}
+      </SyntaxHighlighter>
+      <PromisesFull />
+
       <p className="mb-4">
         Promises are a modern way to handle asynchronous operations like API calls
         and timeouts. They improve code readability and error handling.
@@ -80,11 +103,7 @@ export default FetchDataComponent;`;
         {reactExample}
       </SyntaxHighlighter>
 
-      <h2 className="text-xl font-semibold mt-6">🔹 Explanation</h2>
-      <SyntaxHighlighter language="javascript" style={oneDark}>
-        {explanation}
-      </SyntaxHighlighter>
-      <PromisesFull />
+      
     </div>
     
   );

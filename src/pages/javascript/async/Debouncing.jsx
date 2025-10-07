@@ -1,7 +1,7 @@
 // Debouncing.jsx
 import React, { useState, useCallback } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { oneDark, solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 function debounce(func, delay) {
   let timer;
@@ -125,6 +125,28 @@ function debounce(func, delay) {
     <div className="p-6 animate-fadeIn">
       <h1 className="text-3xl font-bold mb-4">⌛ Debouncing in JavaScript & React</h1>
       
+      <h2 className="text-xl font-semibold mt-6">🔹 Explanation</h2>
+      <SyntaxHighlighter
+        language='Javascript'
+        style={solarizedlight} // or use `vs` for a clean VS Code look
+        showLineNumbers
+        customStyle={{
+          fontSize: "20px",
+          lineHeight: "1.6",
+          backgroundColor: "#fdfdfd",
+          padding: "16px",
+          borderRadius: "0 0 8px 8px",
+          color: "#333",
+        }}
+        codeTagProps={{
+          style: {
+            fontFamily: "JetBrains Mono, Fira Code, monospace",
+          },
+        }}
+      >
+        {explanation}
+      </SyntaxHighlighter>
+
       <p className="mb-4">
         Debouncing ensures that a function runs only after a certain period of inactivity.
         It's commonly used to optimize high-frequency events like typing or scrolling.
@@ -153,10 +175,7 @@ function debounce(func, delay) {
         {customHookExample}
       </SyntaxHighlighter>
 
-      <h2 className="text-xl font-semibold mt-6">🔹 Explanation</h2>
-      <SyntaxHighlighter language="javascript" style={oneDark}>
-        {explanation}
-      </SyntaxHighlighter>
+      
     </div>
   );
 }

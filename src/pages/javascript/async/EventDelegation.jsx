@@ -1,7 +1,7 @@
 // EventDelegation.jsx
 import React, { useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { oneDark, solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function EventDelegation() {
   const example = `// Event Delegation Example in Vanilla JS
@@ -44,6 +44,28 @@ export default ButtonList;`;
     <div className="p-6 animate-fadeIn">
       <h1 className="text-3xl font-bold mb-4">🖱️ Event Delegation in JavaScript & React</h1>
 
+      <h2 className="text-xl font-semibold mt-6">🔹 Explanation</h2>
+      <SyntaxHighlighter
+        language='Javascript'
+        style={solarizedlight} // or use `vs` for a clean VS Code look
+        showLineNumbers
+        customStyle={{
+          fontSize: "20px",
+          lineHeight: "1.6",
+          backgroundColor: "#fdfdfd",
+          padding: "16px",
+          borderRadius: "0 0 8px 8px",
+          color: "#333",
+        }}
+        codeTagProps={{
+          style: {
+            fontFamily: "JetBrains Mono, Fira Code, monospace",
+          },
+        }}
+      >
+        {explanation}
+      </SyntaxHighlighter>
+
       <p className="mb-4">
         Event delegation allows you to attach a single event listener to a parent element 
         instead of multiple listeners on individual child elements. This pattern improves 
@@ -59,11 +81,7 @@ export default ButtonList;`;
       <SyntaxHighlighter language="javascript" style={oneDark}>
         {reactExample}
       </SyntaxHighlighter>
-
-      <h2 className="text-xl font-semibold mt-6">🔹 Explanation</h2>
-      <SyntaxHighlighter language="javascript" style={oneDark}>
-        {explanation}
-      </SyntaxHighlighter>
+      
     </div>
   );
 }
