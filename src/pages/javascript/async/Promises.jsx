@@ -102,7 +102,6 @@ export default FetchDataComponent;`;
       <SyntaxHighlighter language="javascript" style={oneDark}>
         {reactExample}
       </SyntaxHighlighter>
-
       
     </div>
     

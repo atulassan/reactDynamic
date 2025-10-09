@@ -18,10 +18,12 @@ export const ReactRoutes = [
         "path": "/basics/events",
         "component": "Events",
         "componentPath": "/react/basics/Events",
+        
         "children": [
           { "title": "Synthetic Events", "path": "/basics/events/synthetic-events", "component": "SyntheticEvents", "componentPath": "react/basics/events/SyntheticEvents" },
           { "title": "Event Bubbling", "path": "/basics/events/event-bubbling", "component": "EventBubbling", "componentPath": "react/basics/events/EventBubbling" },
-          { "title": "Event Delegation", "path": "/basics/events/event-delegation", "component": "EventDelegation", "componentPath": "react/basics/events/EventDelegation" }
+          { "title": "Event Delegation", "path": "/basics/events/event-delegation", "component": "EventDelegation", "componentPath": "react/basics/events/EventDelegation" },
+          { "title": "Event Target Explorer", "path": "/basics/events/event-target", "component": "EventTargetExplorer", "componentPath": "react/basics/events/EventTargetExplorer" }
         ]
       }
     ]
@@ -126,7 +128,7 @@ export const ReactRoutes = [
         { "title": "Scopes in JavaScript", "path": "/javascript/foundations/scopes", "component": "Scopes", "componentPath": "/javascript/foundations/Scopes" },
         { "title": "Hoisting", "path": "/javascript/foundations/hoisting", "component": "Hoisting", "componentPath": "/javascript/foundations/Hoisting" },
         { "title": "Temporal Dead Zone", "path": "/javascript/foundations/tdz", "component": "TemporalDeadZone", "componentPath": "/javascript/foundations/TemporalDeadZone" },
-        { "title": "Type Coercion & Equality", "path": "/javascript/foundations/type-coercion", "component": "TypeCoercion", "componentPath": "/javascript/foundations/TypeCoercion" },
+        { "title": "Type Coercion & Equality", "path": "/javascript/foundations/type-coercion", "component": "TypeCoercionNew", "componentPath": "/javascript/foundations/TypeCoercionNew" },
         { "title": "Strict Mode", "path": "/javascript/foundations/strict-mode", "component": "StrictMode", "componentPath": "/javascript/foundations/StrictMode" }
       ]
     },
@@ -147,7 +149,8 @@ export const ReactRoutes = [
         { "title": "Prototype vs Classical Inheritance", "path": "/javascript/objects-functions/inheritance", "component": "Inheritance", "componentPath": "/javascript/objects-functions/Inheritance" },
         { "title": "Instances / Implements / Extends", "path": "/javascript/objects-functions/oop-basics", "component": "OOPBasics", "componentPath": "/javascript/objects-functions/OOPBasics" },
         { "title": "OOPS Principles", "path": "/javascript/objects-functions/oops", "component": "OOPS", "componentPath": "/javascript/objects-functions/OOPS" },
-        { "title": "Deep dive", "path": "/javascript/objects-functions/oopsnew", "component": "OOPSnew", "componentPath": "/javascript/objects-functions/OOPSnew" }
+        { "title": "Deep dive", "path": "/javascript/objects-functions/oopsnew", "component": "OOPSnew", "componentPath": "/javascript/objects-functions/OOPSnew" },
+        { "title": "Recursive", "path": "/javascript/objects-functions/recursive", "component": "Recursive", "componentPath": "/javascript/objects-functions/Recursive" }
       ]
     },
     {

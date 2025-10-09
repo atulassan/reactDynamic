@@ -13,6 +13,28 @@ export default function SyntheticEvents() {
       <h2 className="text-2xl font-bold">1️⃣ Synthetic Events</h2>
 
     <h2 data-start="154" data-end="187"><strong data-start="157" data-end="187">What are Synthetic Events?</strong></h2>
+
+
+    <p>React ல Synthetic Events னா என்னன்னா, அது ஒரு wrapper. Browser ஓட native event system மேல React உருவாக்குன ஒரு cross-browser wrapper தான் இது. இது எதுக்குன்னா, எல்லா browser லயும் events (click, change etc.) ஒரே மாதிரி work பண்ணணும்னு React இதை use பண்ணுது. இது event object ஐ normalize பண்ணுது, so `e.stopPropagation()` and `e.preventDefault()` எல்லா browser லயும் ஒரே மாதிரி வேலை செய்யும்.
+இது native events கிடையாது, React ஓட சொந்த event system. </p>
+
+<p>Synthetic Events is a React’s universal event wrapper.<br />
+They make events behave the same across all browsers and let methods like<br />
+e.preventDefault() and e.stopPropagation() work consistently everywhere.</p>
+
+<p>Synthetic events in React are a cross-browser wrapper around the browser's native event system. React creates these to ensure that events (like clicks or changes) behave consistently across all browsers. They normalize the event object, so methods like `e.stopPropagation()` and `e.preventDefault()` work the same everywhere.
+<br />
+<br />
+
+<p>"Event pooled" னா, React performance ஐ improve பண்றதுக்காக event objects ஐ reuse பண்ணுதுன்னு அர்த்தம்.
+<br /><br />
+ஒவ்வொரு event க்கும் (like click, change) ஒரு brand new event object ஐ create பண்ணாம, React ஏற்கனேவே இருக்குற object ஐயே எடுத்து, அதுல புது event ஓட data வை fill பண்ணி reuse பண்ணும்.
+<br /><br />
+இதனால, event handler run ஆகி முடிஞ்சதும், அந்த event object ஓட properties null ஆகிடும். So, நீங்க event properties ஐ அப்புறமா access பண்ணனும்னா, ⁠ e.persist() ⁠ call பண்ணனும்.</p>
+
+
+"Event pooling" means React reuses event objects for performance. Instead of creating a new object for each event, React takes an existing one, fills it with the new event's data, and reuses it. This means after an event handler runs, the event object's properties are nullified. If you need to access event properties asynchronously, you must call `e.persist()`.</p>
+
 <p data-start="189" data-end="278"><strong data-start="189" data-end="209">Synthetic Events</strong> in React are <strong data-start="223" data-end="271">wrapper objects around native browser events</strong>. They:</p>
 <ol data-start="280" data-end="679">
 <li data-start="280" data-end="390">

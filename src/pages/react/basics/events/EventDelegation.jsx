@@ -4,9 +4,10 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function EventDelegation() {
   const handleClick = (e) => {
-    const item = e.target.getAttribute("data-item");
-    if (item) {
-      alert(`You clicked on: ${item}`);
+    console.log(e.target);
+    const item = e.target.tagName;
+    if (item === "LI") {
+      alert(`You clicked on: ${e.target.getAttribute('data-item')} LI`);
     }
   };
 
@@ -57,9 +58,9 @@ export default function EventDelegation() {
       <SyntaxHighlighter language="javascript" style={vscDarkPlus} className="rounded">
         {`// Single parent handles clicks for child elements
 const handleClick = (e) => {
-  const item = e.target.getAttribute('data-item');
-  if(item) {
-    alert('You clicked on: ' + item);
+  const item = e.target.tagName;
+    if (item === "LI") {
+    alert('You clicked on: ' + e.target.getAttribute('data-item') + 'LI');
   }
 };
 

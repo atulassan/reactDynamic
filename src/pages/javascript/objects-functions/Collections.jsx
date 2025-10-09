@@ -2,6 +2,11 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import SetExamples from "./setExamples";
+import MapAllExamples from "./MapAllExamples";
+import WeakSetExample from "./WeakSetExamples";
+import WeakMapExample from "./WeakMapExamples";
+
 
 export default function SetMapWeak() {
   const jsExample = `// Set Example
@@ -64,6 +69,29 @@ export default function SetMapExample() {
   return (
     <div className="p-6 animate-fadeIn">
       <h1 className="text-3xl font-bold mb-4">🔹 Set / Map / WeakSet / WeakMap</h1>
+
+      <h1 className="text-3xl font-bold mb-4">🔹 new Set </h1>
+      <p>A Set is a collection of unique values (no duplicates).</p>
+      <p>Methods : size, add(3), delete(3), has(3)=true, clear, we iterrate usign foreach or for(const k of setValus)</p>
+
+      <div className=" bg-gray-50 text-gray-900">
+        <SetExamples theme="light" />
+      </div>
+
+      <h1 className="text-3xl font-bold mb-4">🔹 new Map </h1>
+      <div className=" bg-gray-50 text-gray-900">
+        <MapAllExamples theme="light" />
+      </div>
+
+      <h1 className="text-3xl font-bold mb-4">🔹 new WeakSet </h1>
+      <div className=" bg-gray-50 text-gray-900">
+        <WeakSetExample theme="light" />
+      </div>
+
+      <h1 className="text-3xl font-bold mb-4">🔹 new WeakMap </h1>
+      <div className=" bg-gray-50 text-gray-900">
+        <WeakMapExample theme="light" />
+      </div>
 
       <h2 className="text-xl font-semibold mt-6">JavaScript Example</h2>
       <SyntaxHighlighter language="javascript" style={oneDark}>
